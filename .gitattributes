@@ -1,0 +1,1 @@
+machines/nixos/_common/networks/default.nix filter=git-crypt diff=git-crypt
