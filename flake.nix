@@ -14,13 +14,18 @@
   };
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
+    };    
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     auto-aspm = {
       url = "github:notthebee/AutoASPM";
@@ -40,12 +45,12 @@
     };
     jovian = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     deploy-rs.url = "github:serokell/deploy-rs";
     disko = {
       url = github:nix-community/disko/latest;
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
@@ -62,11 +67,11 @@
           inputs.home-manager.nixosModules.home-manager
         ]
       )
-      (mkNixos "dell" inputs.nixpkgs
+      (mkNixos "dell" inputs.nixpkgs-unstable
         [
         #   ./desktop
           inputs.jovian.nixosModules.default
-          inputs.home-manager.nixosModules.home-manager
+          inputs.home-manager-unstable.nixosModules.home-manager
         ]
       )
       (mkNixos "vm" inputs.nixpkgs
