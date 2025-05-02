@@ -16,6 +16,15 @@
     pkgs.firefox-bin
   ];
 
+  fileSystems."/" = {
+    device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part2";
+    fsType = "ext4";
+  };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part1";
+    fsType = "vfat";
+  };
+
   hardware = {
     bluetooth.enable = lib.mkForce false;
     enableRedistributableFirmware = true;
