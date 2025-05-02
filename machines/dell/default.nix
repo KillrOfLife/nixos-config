@@ -28,11 +28,10 @@
   hardware = {
     bluetooth.enable = lib.mkForce false;
     enableRedistributableFirmware = true;
-    cpu.amd = {
+    cpu.intel = {
       updateMicrocode = true;
-      ryzen-smu.enable = true;
+      # ryzen-smu.enable = true;
     };
-    xone.enable = true;
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -46,11 +45,7 @@
 
   networking = {
     networkmanager.enable = true;
-    hostName = "vm";
-    hostId = "899635ed";
-    interfaces.enp4s0.wakeOnLan = {
-      enable = true;
-    };
+    hostName = "dell";
   };
 
 }
