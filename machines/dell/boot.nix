@@ -30,14 +30,8 @@
     ];
     loader = {
       timeout = 10;
-      # efi.canTouchEfiVariables = true;
-      grub = {
-            device = "nodev";
-            efiSupport = true;
-            enable = true;
-            useOSProber = true;
-            timeoutStyle = "menu";
-        };
+  	  efi.canTouchEfiVariables = true;
+      systemd-boot.enable = true;
     };
     kernelModules = [ "tcp_bbr" ];
   };
