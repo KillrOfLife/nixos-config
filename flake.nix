@@ -38,6 +38,10 @@
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    jovian = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     deploy-rs.url = "github:serokell/deploy-rs";
     disko = {
       url = github:nix-community/disko/latest;
@@ -61,6 +65,7 @@
       (mkNixos "dell" inputs.nixpkgs
         [
         #   ./desktop
+          inputs.jovian.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
         ]
       )
