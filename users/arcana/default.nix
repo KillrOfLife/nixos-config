@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+vars = import ../../machines/vars.nix;
+in
 {
   nix.settings.trusted-users = [ "arcana" ];
 

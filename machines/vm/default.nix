@@ -15,14 +15,6 @@
     pkgs.stress
     pkgs.firefox-bin
   ];
-  fileSystems."/" = {
-    device = "scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part0";
-    fsType = "ext4";
-  };
-  fileSystems."/boot" = {
-    device = "scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part1";
-    fsType = "vfat";
-  };
 
   hardware = {
     bluetooth.enable = lib.mkForce false;
@@ -52,15 +44,4 @@
     };
   };
 
-    steam = {
-      updater.splash = "vendor";
-      enable = true;
-      autoStart = true;
-      user = "notthebee";
-      desktopSession = "plasma";
-    };
-    steamos = {
-      useSteamOSConfig = true;
-    };
-  };
 }

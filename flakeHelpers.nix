@@ -9,11 +9,11 @@ let
       inputs.agenix.homeManagerModules.default
       inputs.nix-index-database.hmModules.nix-index
       ./users/arcana/dots.nix
-      ./users/arcana/age.nix
     ] ++ extraImports;
     home-manager.backupFileExtension = "bak";
     home-manager.useUserPackages = userPackages;
   };
+  vars = import ./machines/vars.nix;
 in
 {
   mkNixos = machineHostname: nixpkgsVersion: extraModules: rec {
@@ -32,8 +32,9 @@ in
         vars = import ./machines/vars.nix;
       };
       modules = [
-        ./machines/nixos/_common
-        ./machines/nixos/${machineHostname}
+        inputs.disko.nixosModules.disko
+        ./machines/_common
+        ./machines/${machineHostname}
         ./users/arcana
     
 

@@ -1,10 +1,13 @@
-2{
+{
   inputs,
   config,
   pkgs,
   lib,
   ...
 }:
+let
+vars = import ../vars.nix;
+in
 {
   system.stateVersion = "22.11";
   system.autoUpgrade = {
@@ -22,7 +25,7 @@
 
   imports = [
     ./nix
-    ./networks
+    # ./networks
   ];
 
   time.timeZone = "Europe/Brussels";

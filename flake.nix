@@ -39,7 +39,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     deploy-rs.url = "github:serokell/deploy-rs";
-
+    disko = {
+      url = github:nix-community/disko/latest;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
