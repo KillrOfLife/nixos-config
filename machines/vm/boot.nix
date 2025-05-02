@@ -31,9 +31,15 @@
     loader = {
       timeout = 0;
       efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
+      grub = {
+            device = "nodev";
+            efiSupport = true;
+            enable = true;
+            useOSProber = true;
+            timeoutStyle = "menu";
+        };
     };
-    kernelModules = [ "kvm-amd" ];
+    kernelModules = [ "tcp_bbr" ];
   };
 
 }
