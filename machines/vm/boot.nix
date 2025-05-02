@@ -29,8 +29,8 @@
       "boot.shell_on_fail"
     ];
     loader = {
-      timeout = 0;
-      efi.canTouchEfiVariables = true;
+      timeout = 10;
+      # efi.canTouchEfiVariables = true;
       grub = {
             device = "nodev";
             efiSupport = true;
