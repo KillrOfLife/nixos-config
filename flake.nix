@@ -58,6 +58,12 @@
           inputs.home-manager.nixosModules.home-manager
         ]
       )
+      (mkNixos "dell" inputs.nixpkgs
+        [
+        #   ./desktop
+          inputs.home-manager.nixosModules.home-manager
+        ]
+      )
       (mkNixos "vm" inputs.nixpkgs
         [
         #   ./desktop
