@@ -18,7 +18,7 @@
   };
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    consoleLogLevel = 0;
+    # consoleLogLevel = 0;
     initrd.verbose = false;
     kernelParams = [
       "quiet"

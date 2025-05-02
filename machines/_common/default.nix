@@ -89,7 +89,6 @@ in
     yq
     ripgrep
     sqlite
-    inputs.agenix.packages."${system}".default
     lm_sensors
     jc
     moreutils
