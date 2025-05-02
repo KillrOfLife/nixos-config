@@ -16,7 +16,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
