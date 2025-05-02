@@ -1,1 +1,2 @@
-machines/nixos/_common/networks/default.nix filter=git-crypt diff=git-crypt
+machines/_common/networks/default.nix filter=git-crypt diff=git-crypt
+machines/vars.nix filter=git-crypt diff=git-crypt
