@@ -17,11 +17,11 @@
   ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part2";
+    device = "/dev/disk/by-partlabel/disk-main-root";
     fsType = "ext4";
   };
   fileSystems."/boot" = {
-    device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part1";
+    device = "/dev/disk/by-partlabel/disk-main-ESP";
     fsType = "vfat";
   };
 
