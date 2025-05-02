@@ -38,10 +38,6 @@
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    secrets = {
-      url = "git+ssh://git@github.com/KillrOfLife/nix-private.git";
-      flake = false;
-    };
     deploy-rs.url = "github:serokell/deploy-rs";
 
   };
