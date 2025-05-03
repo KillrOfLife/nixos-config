@@ -59,12 +59,6 @@ in
   programs.git.enable = true;
   programs.mosh.enable = true;
   programs.htop.enable = true;
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    defaultEditor = true;
-  };
 
   security = {
     doas.enable = lib.mkDefault false;
@@ -77,7 +71,6 @@ in
   environment.systemPackages = with pkgs; [
     wget
     iperf3
-    eza
     fastfetch
     (python312.withPackages (ps: with ps; [ pip ]))
     tmux
@@ -87,7 +80,6 @@ in
     nmap
     jq
     yq
-    ripgrep
     sqlite
     lm_sensors
     jc
@@ -101,5 +93,4 @@ in
     gdu
     bottom
   ];
-
 }
