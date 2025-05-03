@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
+    extensions = with pkgs.vscode-extensions.vscode-marketplace; [
       # Official Nixpkgs extensions (add more if available in nixpkgs)
       # Otherwise, use `vscode-marketplace` below for all others
       4ops.packer
