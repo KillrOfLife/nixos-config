@@ -26,12 +26,13 @@
   };
 
   hardware = {
-    bluetooth.enable = lib.mkForce false;
+    bluetooth.enable = lib.mkForce true;
     enableRedistributableFirmware = true;
     cpu.intel = {
       updateMicrocode = true;
       # ryzen-smu.enable = true;
     };
+    nvidia.enabled = true;
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -50,7 +51,7 @@
 
   jovian = {
     steam = {
-      updater.splash = "vendor";
+      updater.splash = "steamos"; #"steamos", "jovian", "bgrt", "vendor"
       enable = true;
       autoStart = true;
       user = "arcana";
@@ -58,6 +59,7 @@
     };
     steamos = {
       useSteamOSConfig = true;
+      enableMesaPatches = true;
     };
   };
 

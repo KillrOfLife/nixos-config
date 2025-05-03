@@ -67,7 +67,14 @@
           inputs.home-manager.nixosModules.home-manager
         ]
       )
-      (mkNixos "dell" inputs.nixpkgs-unstable
+      (mkNixos "dell-steamos" inputs.nixpkgs-unstable
+        [
+        #   ./desktop
+          inputs.jovian.nixosModules.default
+          inputs.home-manager-unstable.nixosModules.home-manager
+        ]
+      )
+      (mkNixos "dell-rice" inputs.nixpkgs-unstable
         [
         #   ./desktop
           inputs.jovian.nixosModules.default

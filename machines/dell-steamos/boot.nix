@@ -18,7 +18,8 @@
   };
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    # consoleLogLevel = 0;
+    consoleLogLevel = 0;
+    initrd.verbose = false;
     initrd.verbose = false;
     kernelParams = [
       "quiet"
@@ -31,9 +32,24 @@
     loader = {
       timeout = 10;
   	  efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
+      # systemd-boot.enable = true;
+      grub = {
+            device = "nodev";
+            efiSupport = true;
+            enable = true;
+            useOSProber = true;
+            timeoutStyle = "menu";
+      };
     };
-    kernelModules = [ "tcp_bbr" ];
+    kernelModules = [ "tcp_bbr", "kvm-intel" ];
+    kernel.sysctl = {
+      "net.ipv4.tcp_congestion_control" = "bbr";
+      "net.core.default_qdisc" = "fq";
+      "net.core.wmem_max" = 1073741824;
+      "net.core.rmem_max" = 1073741824;
+      "net.ipv4.tcp_rmem" = "4096 87380 1073741824";
+      "net.ipv4.tcp_wmem" = "4096 87380 1073741824";
+      };
   };
 
 }
