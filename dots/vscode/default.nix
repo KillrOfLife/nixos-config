@@ -40,8 +40,8 @@
       ms-vscode-remote.remote-ssh
       ms-vscode-remote.remote-ssh-edit
       ms-vscode-remote.vscode-remote-extensionpack
-      ms-vscode.remote-explorer
-      ms-vscode.remote-server
+      # ms-vscode.remote-explorer
+      # ms-vscode.remote-server
       # owenfarrel.vscode-vault
       # p1c2u.docker-compose
       # peterjonsson.kickstart-language-support
