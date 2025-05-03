@@ -12,11 +12,8 @@
     enableDefaultPackages = false;
     fontDir.enable = true;
     packages = with pkgs.nerd-fonts; [
-      meslo-lgs-nf
-      font-awesome
-      fira-code
-      fira-code-symbols
-      fira-code-nerdfont
+      Meslo 
+      FiraCode 
     ]; # ++ builtins.filter lib.attrsets.isDeribation (builtins.attrValues pkgs.nerd-fonts)
   };
   services.kmscon = {
