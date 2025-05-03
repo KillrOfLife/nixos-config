@@ -269,11 +269,6 @@
       "SHARE_HISTORY"
     ];
 
-    # Keybindings
-    initExtra = ''
-      bindkey "^[[1;5C" forward-word
-      bindkey "^[[1;5D" backward-word
-    '';
 
     # Completion styling and fzf-tab preview
     completionInit = ''
@@ -300,6 +295,8 @@
 
     # PATH modifications
     initExtra = ''
+      bindkey "^[[1;5C" forward-word
+      bindkey "^[[1;5D" backward-word
       # Add user's local bin if it exists
       if [ -d "$HOME/.local/bin" ]; then
         PATH="$HOME/.local/bin:$PATH"
