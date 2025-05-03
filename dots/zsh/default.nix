@@ -300,11 +300,6 @@
 
     # PATH modifications
     initExtra = ''
-      # Add krew bin directory if it exists
-      if [ -d "$HOME/.krew" ]; then
-        PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-      fi
-
       # Add user's local bin if it exists
       if [ -d "$HOME/.local/bin" ]; then
         PATH="$HOME/.local/bin:$PATH"
