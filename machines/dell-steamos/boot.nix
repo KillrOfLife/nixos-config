@@ -19,8 +19,10 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     consoleLogLevel = 0;
-    initrd.verbose = false;
-    boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+    initrd = { 
+      verbose = false;
+      availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+    };
     kernelParams = [
       "quiet"
       "splash"
@@ -49,7 +51,7 @@
       "net.core.rmem_max" = 1073741824;
       "net.ipv4.tcp_rmem" = "4096 87380 1073741824";
       "net.ipv4.tcp_wmem" = "4096 87380 1073741824";
-      };
+    };
   };
 
 }
