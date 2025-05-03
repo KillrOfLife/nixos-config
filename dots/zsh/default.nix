@@ -258,17 +258,17 @@
       append = true;
     };
 
-    # Zsh options
-    setOptions = [
-      "AUTO_CD"
-      "HIST_IGNORE_SPACE"
-      "HIST_IGNORE_ALL_DUPS"
-      "HIST_SAVE_NO_DUPS"
-      "HIST_IGNORE_DUPS"
-      "HIST_FIND_NO_DUPS"
-      "APPEND_HISTORY"
-      "SHARE_HISTORY"
-    ];
+    # # Zsh options
+    # setOptions = [
+    #   "AUTO_CD"
+    #   "HIST_IGNORE_SPACE"
+    #   "HIST_IGNORE_ALL_DUPS"
+    #   "HIST_SAVE_NO_DUPS"
+    #   "HIST_IGNORE_DUPS"
+    #   "HIST_FIND_NO_DUPS"
+    #   "APPEND_HISTORY"
+    #   "SHARE_HISTORY"
+    # ];
 
 
     # Aliases
