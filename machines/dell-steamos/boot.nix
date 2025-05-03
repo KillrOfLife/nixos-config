@@ -20,7 +20,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
     consoleLogLevel = 0;
     initrd.verbose = false;
-    initrd.verbose = false;
+    boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
     kernelParams = [
       "quiet"
       "splash"
