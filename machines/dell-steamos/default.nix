@@ -32,7 +32,7 @@
       updateMicrocode = true;
       # ryzen-smu.enable = true;
     };
-    nvidia.enabled = true;
+    nvidia.enabled = lib.mkForce true;
     graphics = {
       enable = true;
       enable32Bit = true;
