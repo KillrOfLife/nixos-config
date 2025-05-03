@@ -19,6 +19,7 @@
       fira-code-symbols
       fira-code-nerdfont
     ];
+  };
   services.kmscon = {
     enable = true;
     hwRender = true;
