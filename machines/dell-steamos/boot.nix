@@ -41,7 +41,7 @@
             timeoutStyle = "menu";
       };
     };
-    kernelModules = [ "tcp_bbr", "kvm-intel" ];
+    kernelModules = [ "tcp_bbr" "kvm-intel" ];
     kernel.sysctl = {
       "net.ipv4.tcp_congestion_control" = "bbr";
       "net.core.default_qdisc" = "fq";
