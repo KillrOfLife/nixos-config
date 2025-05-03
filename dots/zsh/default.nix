@@ -13,35 +13,35 @@
       enable = true;
       enableZshIntegration = true;
   	  settings = {
-        format = ''
-        [](surface0)\
-        $os\
-        $username\
-        $hostname\
-        [ ](bg:surface0)\
-        [](bg:peach fg:surface0)\
-        $directory\
-        [](fg:peach bg:green)\
-        $git_branch\
-        $git_status\
-        [](fg:green bg:teal)\
-        $c\
-        $rust\
-        $golang\
-        $nodejs\
-        $php\
-        $java\
-        $kotlin\
-        $haskell\
-        $python\
-        $terraform\
-        [](fg:teal bg:blue)\
-        $docker_context\
-        [](fg:blue bg:lavender)\
-        $time\
-        [ ](fg:lavender)\
-        $line_break$character
-        '';
+        format = lib.concatStrings [
+        ''[](surface0)\''
+        ''$os\''
+        ''$username\''
+        ''$hostname\''
+        ''[ ](bg:surface0)\''
+        ''[](bg:peach fg:surface0)\''
+        ''$directory\''
+        ''[](fg:peach bg:green)\''
+        ''$git_branch\''
+        ''$git_status\''
+        ''[](fg:green bg:teal)\''
+        ''$c\''
+        ''$rust\''
+        ''$golang\''
+        ''$nodejs\''
+        ''$php\''
+        ''$java\''
+        ''$kotlin\''
+        ''$haskell\''
+        ''$python\''
+        ''$terraform\''
+        ''[](fg:teal bg:blue)\''
+        ''$docker_context\''
+        ''[](fg:blue bg:lavender)\''
+        ''$time\''
+        ''[ ](fg:lavender)\''
+        ''$line_break$character''
+        ];
 
         palette = "catppuccin_mocha";
 
