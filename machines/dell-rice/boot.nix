@@ -11,14 +11,13 @@
   fonts = {
     enableDefaultPackages = false;
     fontDir.enable = true;
-    packages = with pkgs; [
-      (nerdfonts.override {fonts = ["Meslo" "FiraCode" "SourceCodePro" "UbuntuMono"];})
+    packages = with pkgs.nerd-fonts; [
       meslo-lgs-nf
       font-awesome
       fira-code
       fira-code-symbols
       fira-code-nerdfont
-    ];
+    ]; # ++ builtins.filter lib.attrsets.isDeribation (builtins.attrValues pkgs.nerd-fonts)
   };
   services.kmscon = {
     enable = true;
