@@ -213,6 +213,7 @@
         vimcmd_replace_symbol = "[](bold fg:lavender)";
         vimcmd_visual_symbol = "[](bold fg:lavender)";
         };
+      };
     };
     zoxide = {
       enable = true;
