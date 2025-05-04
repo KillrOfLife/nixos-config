@@ -1,13 +1,20 @@
 { lib, pkgs, ... }:
 {
   console = {
-    font = "ter-132n";
+    earlySetup = true;
+    font = "ter-u28n";
     packages = [ pkgs.terminus_font ];
     keyMap = "us";
   };
 
   # TTY
-  fonts.fonts = [ pkgs.meslo-lgs-nf ];
+  fonts = {
+    enableDefaultPackages = false;
+    fontDir.enable = true;
+    packages = with pkgs; [
+      nerd-fonts.meslo-lg
+    ];    
+  };
   services.kmscon = {
     enable = true;
     hwRender = true;
@@ -18,11 +25,8 @@
   };
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    consoleLogLevel = 0;
-    initrd = { 
-      verbose = false;
-      availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-    };
+    # consoleLogLevel = 0;
+    initrd.verbose = false;
     kernelParams = [
       "quiet"
       "splash"
@@ -33,7 +37,7 @@
     ];
     loader = {
       timeout = 10;
-  	  efi.canTouchEfiVariables = true;
+      efi.canTouchEfiVariables = true;
       # systemd-boot.enable = true;
       grub = {
             device = "nodev";

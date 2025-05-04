@@ -13,15 +13,15 @@ programs.alacritty = {
 			scrolling.history = 1000;
 			font = {
 				normal = {
-					family = "MesloLGS NF";
+					family = "MesloLGM Nerd Font";
 					style = "Regular";
 				};
 				bold = {
-					family = "MesloLGS NF";
+					family = "MesloLGM Nerd Font";
 					style = "Bold";
 				};
 				italic = {
-					family = "MesloLGS NF";
+					family = "MesloLGM Nerd Font";
 					style = "Italic";
 				};
 				size = 14;

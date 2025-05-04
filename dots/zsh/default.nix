@@ -285,7 +285,7 @@
     };
 
     # PATH modifications
-    initExtra = ''
+    initContent = ''
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
       # Add user's local bin if it exists

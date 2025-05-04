@@ -40,7 +40,6 @@
 
   services = {
     openssh.enable = true;
-    desktopManager.plasma6.enable = true;
   };
 
   networking = {
@@ -48,17 +47,5 @@
     hostName = "dell";
   };
 
-  jovian = {
-    steam = {
-      updater.splash = "vendor";
-      enable = true;
-      autoStart = true;
-      user = "arcana";
-      desktopSession = "plasma";
-    };
-    steamos = {
-      useSteamOSConfig = true;
-    };
-  };
-
+  programs.hyprland.enable = true;
 }

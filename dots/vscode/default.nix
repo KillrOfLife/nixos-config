@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       # Official Nixpkgs extensions (add more if available in nixpkgs)
       # Otherwise, use `vscode-marketplace` below for all others
       # 4ops.packer
@@ -47,7 +47,7 @@
       # peterjonsson.kickstart-language-support
       # pinage404.nix-extension-pack
     ];
-    userSettings = {
+    profiles.default.userSettings = {
       "editor.suggestSelection" = "first";
       "vsintellicode.modify.editor.suggestSelection" = "automaticallyOverrodeDefaultValue";
       "editor.fontFamily" = "MesloLGM Nerd Font Mono";
