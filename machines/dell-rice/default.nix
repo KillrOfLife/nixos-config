@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }:
 {
@@ -46,6 +47,4 @@
     networkmanager.enable = true;
     hostName = "dell";
   };
-
-  programs.hyprland.enable = true;
 }

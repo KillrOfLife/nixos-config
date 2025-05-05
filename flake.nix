@@ -47,6 +47,9 @@
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-nix.url = "github:spikespaz/hyprland-nix";
+
     deploy-rs.url = "github:serokell/deploy-rs";
     disko = {
       url = github:nix-community/disko/latest;
@@ -77,7 +80,7 @@
       (mkNixos "dell-rice" inputs.nixpkgs-unstable
         [
         #   ./desktop
-          inputs.jovian.nixosModules.default
+          inputs.hyprland.nixosModules.default
           inputs.home-manager-unstable.nixosModules.home-manager
         ]
       )
