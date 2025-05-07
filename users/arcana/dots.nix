@@ -1,11 +1,10 @@
-{ inputs, lib, ... }:
+{ inputs, config, ... }:
 let
   home = {
     username = "arcana";
     homeDirectory = "/home/arcana";
     stateVersion = "23.11";
   };
-  inherit (lib) types mkOption;
 in
 {
 
