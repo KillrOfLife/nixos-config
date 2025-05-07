@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  browser = firefox;
+  browser = "${pkgs.firefox-bin}";
 in {
   home.sessionVariables = {
     HISTFILE = lib.mkForce "${config.xdg.stateHome}/bash/history";
