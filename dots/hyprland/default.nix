@@ -63,19 +63,19 @@
     fragments
     baobab
     thunderbird
-    gnome.gnome-power-manager
-    gnome.sushi
-    gnome.gnome-disk-utility
-    gnome.totem
-    gnome.gvfs
+    gnome-power-manager
+    sushi
+    gnome-disk-utility
+    totem
+    gvfs
     loupe
     gnome-text-editor
     gnome-network-displays
     gnome-firmware
 
-    gnome.nautilus
+    nautilus
     ffmpegthumbnailer # thumbnails
-    gnome.nautilus-python # enable plugins
+    nautilus-python # enable plugins
     gst_all_1.gst-libav # thumbnails
     nautilus-open-any-terminal # terminal-context-entry
   ];
