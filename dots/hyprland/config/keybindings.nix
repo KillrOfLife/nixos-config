@@ -58,7 +58,7 @@
 in {
   wayland.windowManager.hyprland.keyBinds = {
     bind = {
-      "SUPER, Return" = "exec, ${config.my.settings.default.terminal}";
+      "SUPER, Return" = "exec, ${pkgs.alacritty}/bin/alacritty";
       "SUPER, a" = "exec, ${pkgs.rofi}/bin/rofi -show drun -mode drun";
       "SUPER, Q" = "killactive,";
       "SUPER, F" = "Fullscreen,0";
