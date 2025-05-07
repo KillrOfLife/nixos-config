@@ -1,10 +1,11 @@
-{ ... }:
+{ lib, ... }:
 let
   home = {
     username = "arcana";
     homeDirectory = "/home/arcana";
     stateVersion = "23.11";
   };
+  inherit (lib) types mkOption;
 in
 {
 
@@ -38,4 +39,9 @@ in
   programs.home-manager.enable = true;
 
   systemd.user.startServices = "sd-switch";
+
+  config = {
+    colorscheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+
+  };
 }

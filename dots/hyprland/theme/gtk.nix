@@ -7,7 +7,7 @@
   gtk = {
     enable = true;
     font = {
-      name = config.my.settings.fonts.regular;
+      name = "MesloLGM Nerd Font";
       size = 12;
     };
 

@@ -4,10 +4,7 @@
   inputs,
   lib,
   ...
-}:
-with lib; let
-  cfg = config.modules.wms.hyprland;
-in {
+}:{
   imports = [
     ./config
     ./gammastep.nix

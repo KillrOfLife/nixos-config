@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  browser = config.my.settings.default.browser;
+  browser = firefox;
 in {
   home.sessionVariables = {
     HISTFILE = lib.mkForce "${config.xdg.stateHome}/bash/history";

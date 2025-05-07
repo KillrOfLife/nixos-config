@@ -26,7 +26,7 @@ in {
       effect-vignette = "0.5:0.5";
       fade-in = 0.2;
 
-      font = "${config.my.settings.fonts.monospace}";
+      font = "MesloLGM Nerd Font";
       ring-color = "${colors.base02}";
       inside-wrong-color = "${colors.base08}";
       ring-wrong-color = "${colors.base08}";
@@ -64,8 +64,8 @@ in {
     timeouts = [
       {
         timeout = 600;
-        command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
-        resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
+        command = "${pkgs.hyprland}/bin/hyprctl dispatch dpms off";
+        resumeCommand = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
       }
       {
         timeout = 610;
