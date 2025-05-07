@@ -51,7 +51,7 @@
     };
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-nix.url = "github:spikespaz/hyprland-nix";
-
+    nwg-displays.url = "github:nwg-piotr/nwg-displays";
     deploy-rs.url = "github:serokell/deploy-rs";
     disko = {
       url = github:nix-community/disko/latest;
