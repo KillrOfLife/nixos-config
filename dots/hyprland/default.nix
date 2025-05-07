@@ -52,9 +52,7 @@ in {
       sway-contrib.grimshot
       pkgs.xdg-desktop-portal-hyprland
       pkgs.satty
-    ];
 
-home.packages = with pkgs; [
     kooha
     mission-center
     foliate
