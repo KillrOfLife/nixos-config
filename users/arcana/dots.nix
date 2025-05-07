@@ -1,4 +1,4 @@
-{ inputs, config ... }:
+{ inputs, ... }:
 let
   home = {
     username = "arcana";
@@ -7,7 +7,7 @@ let
   };
 in
 {
- config = {
+
   nixpkgs = {
     overlays = [ ];
     config = {
@@ -19,6 +19,7 @@ in
   home = home;
 
   imports = [
+    inputs.nix-colors.homeManagerModule
     ../../dots/alacritty/default.nix
     ../../dots/zsh/default.nix
     ../../dots/nvim/default.nix
@@ -40,5 +41,4 @@ in
   systemd.user.startServices = "sd-switch";
 
   colorscheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
- };
 }
