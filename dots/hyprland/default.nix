@@ -1,25 +1,68 @@
-{ pkgs, ... }:{
-  wayland.windowManager.hyprland = {
-    enable = true;
-    # systemd.enable = true;
-    xwayland.enable = true;
-    settings = {
-      env = [
-        # Hint Electron apps to use Wayland
-        "NIXOS_OZONE_WL,1"
-        "XDG_CURRENT_DESKTOP,Hyprland"
-        "XDG_SESSION_TYPE,wayland"
-        "XDG_SESSION_DESKTOP,Hyprland"
-        "QT_QPA_PLATFORM,wayland"
-        "XDG_SCREENSHOTS_DIR,$HOME/screens"
-      ];
-    };
+{
+  pkgs,
+  config,
+  inputs,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.wms.hyprland;
+in {
+  imports = [
+    ./config
+    ./gammastep.nix
+    ./kanshi.nix
+    ./rofi.nix
+    ./swaync
+    ./swaylock.nix
+    ./theme
+    ./waybar
+    ./wlogout
+    ./xdg.nix
+
+    ../../programs/gui.nix
+
+    inputs.hyprland-nix.homeManagerModules.default
+  ];
+
+  options.modules.wms.hyprland = {
+    enable = mkEnableOption "enable hyprland window manager";
   };
 
-  home.packages = with pkgs; [
-    libsForQt5.xwaylandvideobridge
-    libnotify
-    # xdg-desktop-portal-gtk
-    # xdg-desktop-portal-hyprland
-  ];
+  config = mkIf cfg.enable {
+    home.sessionVariables = {
+      MOZ_ENABLE_WAYLAND = 1;
+      QT_QPA_PLATFORM = "wayland;xcb";
+      LIBSEAT_BACKEND = "logind";
+    };
+
+    dconf.settings = {
+      "org/gnome/desktop/privacy" = {
+        remember-recent-files = false;
+      };
+    };
+
+    home.packages = with pkgs; [
+      mplayer
+      mtpfs
+      jmtpfs
+      brightnessctl
+      xdg-utils
+      wl-clipboard
+      pamixer
+      playerctl
+
+      inputs.nwg-displays.packages.${pkgs.system}.default
+      grimblast
+      slurp
+      sway-contrib.grimshot
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.satty
+    ];
+
+    nix.settings = {
+      substituters = ["https://hyprland.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    };
+  };
 }
