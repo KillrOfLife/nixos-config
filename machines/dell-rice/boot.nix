@@ -21,7 +21,9 @@
     extraConfig = ''
       font-name=MesloLGM Nerd Font
       font-size=20
+      no-drm
     '';
+
   };
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest;
