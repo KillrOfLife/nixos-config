@@ -7,7 +7,6 @@
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
       xwayland.enable = true;
     };
-    eww.enable = true;
     hyprlock.enable = true;
     nm-applet.enable = true;
     thunar.enable = true;
@@ -53,7 +52,7 @@
     libnotify
 
     # Hyprland Stuff
-    ags
+    ags #eww
     swww
     wl-clipboard
     wlogout
