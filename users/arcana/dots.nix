@@ -16,7 +16,7 @@ in
     };
   };
 
-  home = home;
+  
 
   imports = [
     ../../dots/alacritty/default.nix
@@ -41,6 +41,6 @@ in
 
   config = {
     colorscheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
-
+    home = home;
   };
 }
