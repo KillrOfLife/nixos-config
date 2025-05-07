@@ -16,8 +16,8 @@
     ];    
   };
   services.kmscon = {
-    enable = false;
-    hwRender = true;
+    enable = true;
+    hwRender = false;
     extraConfig = ''
       font-name=MesloLGM Nerd Font
       font-size=20

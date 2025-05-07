@@ -39,7 +39,10 @@
       enable32Bit = true;
     };
     # opengl.enable = true;
-    nvidia.modesetting.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = true;
+    };
   };
 
   services = {
