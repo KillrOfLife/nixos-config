@@ -16,7 +16,7 @@
     ];    
   };
   services.kmscon = {
-    enable = true;
+    enable = false;
     hwRender = true;
     extraConfig = ''
       font-name=MesloLGM Nerd Font
