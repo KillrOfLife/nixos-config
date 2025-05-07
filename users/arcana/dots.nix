@@ -1,4 +1,4 @@
-{ inputs, config, ... }:
+{ ... }:
 let
   home = {
     username = "arcana";
@@ -16,7 +16,7 @@ in
     };
   };
 
-  
+  home = home;
 
   imports = [
     ../../dots/alacritty/default.nix
@@ -39,8 +39,4 @@ in
 
   systemd.user.startServices = "sd-switch";
 
-  config = {
-    colorscheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
-    home = home;
-  };
-}
+  colorscheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
