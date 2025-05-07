@@ -40,6 +40,7 @@
       flake = false;
     };
     nix-colors.url = "github:misterio77/nix-colors";
+    nur.url = "github:nix-community/NUR";
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -20,6 +20,7 @@ in
 
   imports = [
     inputs.nix-colors.homeManagerModule
+    inputs.nur.hmModules.nur
     ../../dots/alacritty/default.nix
     ../../dots/zsh/default.nix
     ../../dots/nvim/default.nix
