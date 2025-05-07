@@ -1,18 +1,35 @@
 { inputs, lib, config, pkgs, ... }:
 {
-  services.displayManager.defaultSession = "hyprland";
-
   programs = {
     hyprland = {
       enable = true;
       # nvidiaPatches = true;
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      portalPackage = pkgs.xdg-desktop-portal-hyprland;
       xwayland.enable = true;
     };
+    eww.enable = true;
     hyprlock.enable = true;
-    # xwayland.enable = true;
-    # dconf.enable = true;
+    nm-applet.enable = true;
+    thunar.enable = true;
+	  thunar.plugins = with pkgs.xfce; [
+		  exo
+		  mousepad
+		  thunar-archive-plugin
+		  thunar-volman
+		  tumbler
+  	  ];
+    #steam = {
+    #  enable = true;
+    #  gamescopeSession.enable = true;
+    #  remotePlay.openFirewall = true;
+    #  dedicatedServer.openFirewall = true;
+    #};
+    dconf.enable = true;
+    seahorse.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
   };
 
   environment.sessionVariables = {
@@ -31,12 +48,19 @@
   #   LIBSEAT_BACKEND = "logind";
   # };
 
-  environment.systemPackages = [
-    pkgs.eww
-    pkgs.dunst
-    pkgs.libnotify
-    pkgs.swww
-    pkgs.rofi-wayland
+  environment.systemPackages = with pkgs; [
+    # System Packages
+    libnotify
+
+    # Hyprland Stuff
+    ags
+    swww
+    wl-clipboard
+    wlogout
+    rofi-wayland
+
+
+    dunst
   ];
 
   services.dbus.enable = true;
@@ -58,10 +82,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
-      };
-      initial_session = {
-        command = "Hyprland";
+        command = "${pkgs.greetd.greetd}/bin/tuigreet --cmd Hyprland";
         user = "arcana";
       };
     };
@@ -69,6 +90,28 @@
 
   security.rtkit.enable = true;
   security.polkit.enable = true;
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (
+        subject.isInGroup("users")
+          && (
+            action.id == "org.freedesktop.login1.reboot" ||
+            action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
+            action.id == "org.freedesktop.login1.power-off" ||
+            action.id == "org.freedesktop.login1.power-off-multiple-sessions"
+          )
+        )
+      {
+        return polkit.Result.YES;
+      }
+    })
+  '';
+  security.pam.services.swaylock = {
+    text = ''
+      auth include login
+    '';
+  };
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;

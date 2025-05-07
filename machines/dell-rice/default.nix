@@ -28,7 +28,16 @@
   };
 
   hardware = {
-    bluetooth.enable = lib.mkForce false;
+    bluetooth = {
+	    enable = true;
+	    powerOnBoot = true;
+	    settings = {
+		    General = {
+		      Enable = "Source,Sink,Media,Socket";
+		      Experimental = true;
+		    };
+      };
+    };
     enableRedistributableFirmware = true;
     cpu.intel = {
       updateMicrocode = true;
@@ -47,6 +56,8 @@
 
   services = {
     openssh.enable = true;
+    blueman.enable = true;
+    gnome.gnome-keyring.enable = true;
   };
 
   networking = {

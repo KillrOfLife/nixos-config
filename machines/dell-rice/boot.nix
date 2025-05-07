@@ -26,6 +26,7 @@
 
   };
   boot = {
+    kernelPackages = pkgs.linuxPackages_zen; # optimized for desktop environments
     # kernelPackages = pkgs.linuxPackages_latest;
     # consoleLogLevel = 0;
     initrd.verbose = false;
@@ -49,7 +50,7 @@
             timeoutStyle = "menu";
       };
     };
-    initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
+    initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
     initrd.kernelModules = [ ];
     kernelModules = [ "tcp_bbr" "kvm-intel" ];
     kernel.sysctl = {
