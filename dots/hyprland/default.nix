@@ -20,16 +20,10 @@ in {
     ./wlogout
     ./xdg.nix
 
-    ../../programs/gui.nix
 
     inputs.hyprland-nix.homeManagerModules.default
   ];
 
-  options.modules.wms.hyprland = {
-    enable = mkEnableOption "enable hyprland window manager";
-  };
-
-  config = mkIf cfg.enable {
     home.sessionVariables = {
       MOZ_ENABLE_WAYLAND = 1;
       QT_QPA_PLATFORM = "wayland;xcb";
@@ -60,9 +54,57 @@ in {
       pkgs.satty
     ];
 
-    nix.settings = {
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-    };
-  };
+home.packages = with pkgs; [
+    kooha
+    mission-center
+    foliate
+    helvum
+    pavucontrol
+    pika-backup
+    read-it-later
+    trayscale
+    piper
+
+    fragments
+    baobab
+    thunderbird
+    gnome.gnome-power-manager
+    gnome.sushi
+    gnome.gnome-disk-utility
+    gnome.totem
+    gnome.gvfs
+    loupe
+    gnome-text-editor
+    gnome-network-displays
+    gnome-firmware
+
+    gnome.nautilus
+    ffmpegthumbnailer # thumbnails
+    gnome.nautilus-python # enable plugins
+    gst_all_1.gst-libav # thumbnails
+    nautilus-open-any-terminal # terminal-context-entry
+  ];
+
+  home.sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 = lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" (with pkgs.gst_all_1; [
+    gst-plugins-good
+    gst-plugins-bad
+    gst-plugins-ugly
+    gst-libav
+  ]);
+
+  xdg.configFile."com.github.johnfactotum.Foliate/themes/mocha.json".text = ''
+    {
+        "label": "Mocha",
+        "light": {
+        	"fg": "#999999",
+        	"bg": "#cccccc",
+        	"link": "#666666"
+        },
+        "dark": {
+        	"fg": "#cdd6f4",
+        	"bg": "#1e1e2e",
+        	"link": "#E0DCF5"
+        }
+    }
+  '';
 }
