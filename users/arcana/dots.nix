@@ -25,6 +25,7 @@ in
     ../../dots/neofetch/default.nix
     ../../dots/tmux/default.nix
     ../../dots/vscode/default.nix
+    # ../../dots/hyprland/default.nix
     ./packages.nix
     ./gitconfig.nix
   ];

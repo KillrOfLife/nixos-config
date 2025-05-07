@@ -87,6 +87,8 @@
       (mkNixos "vm" inputs.nixpkgs
         [
         #   ./desktop
+#         +      <nixpkgs/nixos/modules/profiles/qemu-guest.nix>
+# +      <nixpkgs/nixos/modules/virtualisation/qemu-vm.nix>
           inputs.home-manager.nixosModules.home-manager
         ]
       )

@@ -9,6 +9,7 @@
   imports = [
     ./disko.nix
     ./boot.nix
+    ../../modules/sway
   ];
 
   environment.systemPackages = [
@@ -37,6 +38,8 @@
       enable = true;
       enable32Bit = true;
     };
+    # opengl.enable = true;
+    nvidia.modesetting.enable = true;
   };
 
   services = {

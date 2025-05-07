@@ -28,8 +28,8 @@ in
     nixosConfigurations.${machineHostname} = nixpkgsVersion.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        inherit inputs;
         vars = import ./machines/vars.nix;
+        inherit inputs;
       };
       modules = [
         inputs.disko.nixosModules.disko

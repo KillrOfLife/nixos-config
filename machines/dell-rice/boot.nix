@@ -19,7 +19,7 @@
     enable = true;
     hwRender = true;
     extraConfig = ''
-      font-name=MesloLGS NF
+      font-name=MesloLGM Nerd Font
       font-size=20
     '';
   };
