@@ -72,7 +72,7 @@
     gnome-text-editor
     gnome-network-displays
     gnome-firmware
-
+    swaybg
     nautilus
     ffmpegthumbnailer # thumbnails
     nautilus-python # enable plugins
