@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     libsForQt5.qtstyleplugin-kvantum
     (catppuccin-kvantum.override {
-      accent = "Mauve";
+      accent = "mauve";
       variant = "Mocha";
     })
   ];
