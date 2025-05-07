@@ -9,7 +9,7 @@
   imports = [
     ./disko.nix
     ./boot.nix
-    ../../modules/sway
+    ../../modules/hyprland
   ];
 
   environment.systemPackages = [

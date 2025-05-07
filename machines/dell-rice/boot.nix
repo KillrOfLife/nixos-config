@@ -22,7 +22,7 @@
       font-name=MesloLGM Nerd Font
       font-size=20
       no-drm
-    '';
+    ''; # disable drm for wayland
 
   };
   boot = {

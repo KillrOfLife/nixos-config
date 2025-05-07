@@ -9,8 +9,8 @@
       xwayland.enable = true;
     };
     hyprlock.enable = true;
-    xwayland.enable = true;
-    dconf.enable = true;
+    # xwayland.enable = true;
+    # dconf.enable = true;
   };
 
   environment.sessionVariables = {
@@ -20,14 +20,14 @@
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
     GDK_BACKEND = "wayland";
-    WLR_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1"; # Explicitly set GPU devices
-    AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1"; # Explicitly set GPU devices
+    # WLR_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1"; # Explicitly set GPU devices
+    # AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1"; # Explicitly set GPU devices
  
   };
 
-  environment.variables = {
-    LIBSEAT_BACKEND = "logind";
-  };
+  # environment.variables = {
+  #   LIBSEAT_BACKEND = "logind";
+  # };
 
   environment.systemPackages = [
     pkgs.eww
