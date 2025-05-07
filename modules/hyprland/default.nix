@@ -1,7 +1,7 @@
 { inputs, lib, config, pkgs, ... }:
 {
   services.displayManager.defaultSession = "hyprland";
-  
+
   programs = {
     hyprland = {
       enable = true;
@@ -54,6 +54,18 @@
     ];
   };
 
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
+      };
+      initial_session = {
+        command = "Hyprland";
+        user = "arcana";
+      };
+    };
+  };
 
   security.rtkit.enable = true;
   security.polkit.enable = true;
