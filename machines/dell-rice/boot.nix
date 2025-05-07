@@ -24,7 +24,7 @@
     '';
   };
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
     # consoleLogLevel = 0;
     initrd.verbose = false;
     kernelParams = [
@@ -47,6 +47,8 @@
             timeoutStyle = "menu";
       };
     };
+    boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
+    boot.initrd.kernelModules = [ ];
     kernelModules = [ "tcp_bbr" "kvm-intel" ];
     kernel.sysctl = {
       "net.ipv4.tcp_congestion_control" = "bbr";
