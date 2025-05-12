@@ -10,6 +10,7 @@
     ./disko.nix
     ./boot.nix
     ../../modules/hyprland
+    ../../modules/steam
   ];
 
   environment.systemPackages = [

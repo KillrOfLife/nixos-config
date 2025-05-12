@@ -59,7 +59,7 @@
     rofi-wayland
 
 
-    dunst
+    # dunst
   ];
 
   services.dbus.enable = true;
