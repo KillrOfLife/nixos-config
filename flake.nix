@@ -72,7 +72,7 @@
       (mkNixos "framework" inputs.nixpkgs-unstable
         [
         #   ./desktop
-          nixos-hardware.nixosModules.framework-amd-ai-300-series
+          inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
           inputs.hyprland.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
         ]
