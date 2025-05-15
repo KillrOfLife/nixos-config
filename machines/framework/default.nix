@@ -9,11 +9,11 @@
   imports = [
     ./disko.nix
     ./boot.nix
-    ./framework_patches.nix
+    # ./framework_patches.nix
     ../../modules/hyprland
     ../../modules/steam
     ../../modules/netbird
-    ../../modules/hydectl
+    ../../modules/hydectl/
   ];
 
   fileSystems."/" = {
