@@ -25,7 +25,7 @@
         amdgpu = {
             enable = true;
             # enable the latest firmware for the amdgpu driver
-            firmware.enableLatestFirmware = mkForce true;
+            firmware.enableLatestFirmware = true;
         };
         fprintd.enable = true; # fingerprint reader support
         fwupd.enable = true; # bios updates through LVFS
