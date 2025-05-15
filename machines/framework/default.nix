@@ -13,7 +13,7 @@
     ../../modules/hyprland
     ../../modules/steam
     ../../modules/netbird
-    ../../modules/hydectl/
+    ../../modules/hydectl
   ];
 
   fileSystems."/" = {
