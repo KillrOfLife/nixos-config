@@ -59,6 +59,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     hydectl.url = "github:KillrOfLife/HyDE-cli-nix";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs =
@@ -71,6 +72,7 @@
       (mkNixos "framework" inputs.nixpkgs-unstable
         [
         #   ./desktop
+          nixos-hardware.nixosModules.framework-amd-ai-300-series
           inputs.hyprland.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
         ]
