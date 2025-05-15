@@ -68,7 +68,7 @@
       inherit (helpers) mkMerge mkNixos;
     in
     mkMerge [
-      (mkNixos "framework" inputs.nixpkgs
+      (mkNixos "framework" inputs.nixpkgs-unstable
         [
         #   ./desktop
           inputs.hyprland.nixosModules.default
