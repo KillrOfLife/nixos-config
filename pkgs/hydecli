@@ -1,0 +1,24 @@
+{ stdenv, lib, fetchurl, pkgs, flake-utils, ... }:
+{
+stdenv.mkDerivation {
+  name = "hydectl";
+  src = fetchurl {
+    url = "https://github.com/KillrOfLife/ZSH-dotfiles/raw/refs/heads/main/.local/bin/hydectl";
+    sha256 = ""; # Fill in the correct hash
+  };
+};
+# stdenv.mkDerivation = {
+#   name = "hyde-ipc";
+#   src = fetchurl {
+#     url = "https://github.com/KillrOfLife/ZSH-dotfiles/raw/refs/heads/main/.local/bin/hyde-ipc";
+#     sha256 = ""; # Fill in the correct hash
+#   };
+# };
+# stdenv.mkDerivation = {
+#   name = "hyde-shell";
+#   src = fetchurl {
+#     url = "https://github.com/KillrOfLife/ZSH-dotfiles/raw/refs/heads/main/.local/bin/hyde-shell";
+#     sha256 = ""; # Fill in the correct hash
+#   };
+# };
+}

@@ -19,6 +19,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,6 +58,7 @@
       url = github:nix-community/disko/latest;
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    hydectl.url = "github:KillrOfLife/HyDE-cli-nix";
   };
 
   outputs =

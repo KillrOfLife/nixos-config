@@ -19,16 +19,16 @@ in
   home = home;
 
   imports = [
-    inputs.nix-colors.homeManagerModule
-    inputs.nur.modules.homeManager.default
-    ../../dots/alacritty/default.nix
-    ../../dots/zsh/default.nix
-    ../../dots/nvim/default.nix
-    ../../dots/neofetch/default.nix
-    ../../dots/tmux/default.nix
-    ../../dots/vscode/default.nix
-    ../../dots/hyprland/default.nix
-    ./packages.nix
+    # inputs.nix-colors.homeManagerModule
+    # inputs.nur.modules.homeManager.default
+    # ../../dots/alacritty/default.nix
+    # ../../dots/zsh/default.nix
+    # ../../dots/nvim/default.nix
+    # ../../dots/neofetch/default.nix
+    # ../../dots/tmux/default.nix
+    # ../../dots/vscode/default.nix
+    # ../../dots/hyprland/default.nix
+    # ./packages.nix
     ./gitconfig.nix
   ];
 
@@ -41,5 +41,5 @@ in
 
   systemd.user.startServices = "sd-switch";
 
-  colorscheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+  # colorscheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 }

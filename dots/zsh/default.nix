@@ -299,35 +299,10 @@ if [ -d "$HOME/.local/bin" ] ; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Check if mise is already installed
-if [[ -x "$(command -v $HOME/.local/bin/mise)" ]]; then
-  # Initialize mise 
-  eval "$($HOME/.local/bin/mise activate zsh)"
-else
-  echo "mise (en place) not found. Installing..."
-  curl https://mise.run | sh
-  mise doctor && mise install
-fi
-
 # Check if starship is already installed
 if [[ -x "$(command -v starship)" ]]; then
   # Initialize starship prompt if it's installed
   eval "$(starship init zsh)"
-else
-  echo "Starship prompt not found. Please fix mise config."
-  # curl -sS https://starship.rs/install.sh | sh
-fi
-
-# Check if homebrew is already installed
-if [ ! -d "/home/linuxbrew/.linuxbrew/bin" ] ; then
-  echo "Homebrew not found. Installing..."
-  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
-fi
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-if [[ ! -x "$(command -v thefuck)" ]]; then
-  echo "thefuck not found. Installing..."
-  brew install thefuck
 fi
 
 # Add in snippets
@@ -364,14 +339,11 @@ function mise_pin() {
   mise use $1@$(mise latest $1)
 }
 
-alias mise_update='mise upgrade --bump'
-
 # Shell integrations
 if [[ -x "$(command -v fzf)" ]]; then; source <(fzf --zsh); fi
 if [[ -x "$(command -v kubectl)" ]]; then; source <(kubectl completion zsh); fi
 
 eval "$(zoxide init --cmd cd zsh)"
-eval $(thefuck --alias)
 
 
     '';
