@@ -71,6 +71,7 @@
       (mkNixos "framework" inputs.nixpkgs
         [
         #   ./desktop
+          inputs.hyprland.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
         ]
       )
