@@ -24,10 +24,6 @@
     services = {
         amdgpu = {
             enable = true;
-            firmware = {
-                # enable the latest firmware for the amdgpu driver
-                enableLatestFirmware = true;
-            };
             # enable the latest firmware for the amdgpu driver
             firmware.enableLatestFirmware = mkForce true;
         };
