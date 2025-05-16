@@ -74,29 +74,29 @@
         #   ./desktop
           inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
           inputs.hyprland.nixosModules.default
-          inputs.home-manager.nixosModules.home-manager
+          inputs.home-manager.nixosModules.home-manager-unstable
         ]
       )
       (mkNixos "dell-steamos" inputs.nixpkgs-unstable
         [
         #   ./desktop
           inputs.jovian.nixosModules.default
-          inputs.home-manager-unstable.nixosModules.home-manager
+          inputs.home-manager-unstable.nixosModules.home-manager-unstable
         ]
       )
       (mkNixos "dell-rice" inputs.nixpkgs-unstable
         [
         #   ./desktop
           inputs.hyprland.nixosModules.default
-          inputs.home-manager-unstable.nixosModules.home-manager
+          inputs.home-manager-unstable.nixosModules.home-manager-unstable
         ]
       )
-      (mkNixos "vm" inputs.nixpkgs
+      (mkNixos "vm" inputs.nixpkgs-unstable
         [
         #   ./desktop
 #         +      <nixpkgs/nixos/modules/profiles/qemu-guest.nix>
 # +      <nixpkgs/nixos/modules/virtualisation/qemu-vm.nix>
-          inputs.home-manager.nixosModules.home-manager
+          inputs.home-manager.nixosModules.home-manager-unstable
         ]
       )
     ];
