@@ -25,27 +25,47 @@ in
         path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos nixosConfigurations.${machineHostname};
       };
     };
-    nixosConfigurations.${machineHostname} = nixpkgsVersion.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        vars = import ./machines/vars.nix;
-        inherit inputs;
+    nixosConfigurations = {
+      ${machineHostname} = nixpkgsVersion.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          vars = import ./machines/vars.nix;
+          inherit inputs;
+        };
+        modules = [
+          inputs.disko.nixosModules.disko
+          ./machines/_common
+          ./machines/${machineHostname}
+          ./users/arcana
+
+
+
+          # ./modules/email
+          # ./modules/tg-notify
+          # ./modules/auto-aspm
+          # ./modules/mover
+          (homeManagerCfg false [ ])
+        ] ++ extraModules;
       };
-      modules = [
-        inputs.disko.nixosModules.disko
-        ./machines/_common
-        ./machines/${machineHostname}
-        ./users/arcana
-
-
-
-        # ./modules/email
-        # ./modules/tg-notify
-        # ./modules/auto-aspm
-        # ./modules/mover
-        (homeManagerCfg false [ ])
-      ] ++ extraModules;
-    };
+      live.${machineHostname} = nixpkgsVersion.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          vars = import ./machines/vars.nix;
+          inherit inputs;
+        };
+        modules = [
+          (nixpkgsVersion + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
+          inputs.disko.nixosModules.disko
+          ./machines/_common
+          ./machines/${machineHostname}
+          ./users/arcana
+          # ./modules/email
+          # ./modules/tg-notify
+          # ./modules/auto-aspm
+          # ./modules/mover
+          (homeManagerCfg true [ ])
+        ] ++ extraModules;
+      };
   };
   mkMerge = inputs.nixpkgs.lib.lists.foldl' (
     a: b: inputs.nixpkgs.lib.attrsets.recursiveUpdate a b
