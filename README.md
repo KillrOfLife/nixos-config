@@ -68,6 +68,7 @@ Put the private and GPG key into place (required for secret management)
 mkdir -p /mnt/home/arcana/.ssh
 exit
 scp ~/.ssh/arcana root@$NIXOS_HOST:/mnt/home/arcana/.ssh
+scp ~/.ssh/arcana.pub root@$NIXOS_HOST:/mnt/home/arcana/.ssh
 scp ~/.ssh/git-crypt-nix root@$NIXOS_HOST:/mnt/home/arcana/.ssh
 ssh root@$NIXOS_HOST
 chmod 700 /mnt/home/arcana/.ssh
@@ -103,4 +104,9 @@ Reboot
 
 ```bash
 reboot
+```
+
+## ISO creation
+```sh
+nix build .#nixosConfigurations.live.framework.config.system.build.isoImage
 ```
