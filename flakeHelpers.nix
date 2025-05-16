@@ -25,8 +25,7 @@ in
         path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos nixosConfigurations.${machineHostname};
       };
     };
-    nixosConfigurations = {
-      ${machineHostname} = nixpkgsVersion.lib.nixosSystem {
+    nixosConfigurations.${machineHostname} = nixpkgsVersion.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           vars = import ./machines/vars.nix;
@@ -46,8 +45,18 @@ in
           # ./modules/mover
           (homeManagerCfg false [ ])
         ] ++ extraModules;
+    };
+  };
+  mkLive = machineHostname: nixpkgsVersion: extraModules: rec {
+    deploy.nodes.${machineHostname} = {
+      hostname = machineHostname;
+      profiles.system = {
+        user = "root";
+        sshUser = "arcana";
+        path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos nixosConfigurations.${machineHostname};
       };
-      live.${machineHostname} = nixpkgsVersion.lib.nixosSystem {
+    };
+    nixosConfigurations.live.${machineHostname} = nixpkgsVersion.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           vars = import ./machines/vars.nix;
@@ -65,7 +74,6 @@ in
           # ./modules/mover
           (homeManagerCfg true [ ])
         ] ++ extraModules;
-      };
     };
   };
   mkMerge = inputs.nixpkgs.lib.lists.foldl' (

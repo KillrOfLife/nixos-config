@@ -77,6 +77,14 @@
           inputs.home-manager-unstable.nixosModules.home-manager
         ]
       )
+      (mkLive "framework" inputs.nixpkgs-unstable
+        [
+        #   ./desktop
+          inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
+          inputs.hyprland.nixosModules.default
+          inputs.home-manager-unstable.nixosModules.home-manager
+        ]
+      )
       (mkNixos "dell-steamos" inputs.nixpkgs-unstable
         [
         #   ./desktop
