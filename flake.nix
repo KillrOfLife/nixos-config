@@ -66,7 +66,7 @@
     { ... }@inputs:
     let
       helpers = import ./flakeHelpers.nix inputs;
-      inherit (helpers) mkMerge mkNixos;
+      inherit (helpers) mkMerge mkNixos mkLive;
     in
     mkMerge [
       (mkNixos "framework" inputs.nixpkgs-unstable
