@@ -48,7 +48,7 @@
       grub = {
             device = "nodev";
             efiSupport = true;
-            enable = true;
+            enable = lib.mkForce true;
             useOSProber = true;
             timeoutStyle = "menu";
       };
