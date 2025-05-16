@@ -99,6 +99,13 @@
           inputs.home-manager-unstable.nixosModules.home-manager
         ]
       )
+      (mkNixos "slice" inputs.nixpkgs-unstable
+        [
+        #   ./desktop
+          inputs.hyprland.nixosModules.default
+          inputs.home-manager-unstable.nixosModules.home-manager
+        ]
+      )
       (mkNixos "vm" inputs.nixpkgs-unstable
         [
         #   ./desktop
