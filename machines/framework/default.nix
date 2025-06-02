@@ -55,7 +55,6 @@
   services = {
     openssh.enable = true;
     blueman.enable = true;
-    gnome.gnome-keyring.enable = true;
 
     fstrim.enable = lib.mkDefault true; # enable fstrim for SSDs
   };

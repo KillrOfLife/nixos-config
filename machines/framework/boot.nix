@@ -28,19 +28,20 @@
 
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_zen; # optimized for desktop environments
-    # kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_zen; # optimized for desktop environments
+    kernelPackages = pkgs.linuxPackages_latest;
     # consoleLogLevel = 0;
     initrd.verbose = false;
     initrd.systemd.enable = true;
-    # kernelParams = [
-    #   "quiet"
-    #   "splash"
-    #   "rd.systemd.show_status=false"
-    #   "rd.udev.log_level=3"
-    #   "udev.log_priority=3"
-    #   "boot.shell_on_fail"
-    # ];
+    kernelParams = [
+      "quiet"
+      "splash"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+      "boot.shell_on_fail"
+      "amdgpu.sg_display=0"
+    ];
     loader = {
       timeout = 10;
       efi.canTouchEfiVariables = true;
