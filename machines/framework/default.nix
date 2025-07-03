@@ -10,7 +10,7 @@
     ./disko.nix
     ./boot.nix
     # ./framework_patches.nix
-    ../../modules/plasma
+    ../../modules/gnome
     ../../modules/steam
     ../../modules/netbird
     # ../../modules/hydectl
