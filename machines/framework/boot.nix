@@ -26,7 +26,6 @@
 
   };
 
-
   boot = {
     # kernelPackages = pkgs.linuxPackages_zen; # optimized for desktop environments
     kernelPackages = pkgs.linuxPackages_latest;
@@ -42,6 +41,8 @@
       "boot.shell_on_fail"
       "amdgpu.sg_display=0"
     ];
+    # Optionally, include xpadneo for better Xbox controller support:
+    extraModulePackages = [ pkgs.linuxPackages_latest.xpadneo ];
     loader = {
       timeout = 10;
       efi.canTouchEfiVariables = true;

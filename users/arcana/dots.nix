@@ -1,13 +1,5 @@
 { inputs, ... }:
-let
-  home = {
-    username = "arcana";
-    homeDirectory = "/home/arcana";
-    stateVersion = "23.11";
-  };
-in
 {
-
   nixpkgs = {
     overlays = [ ];
     config = {
@@ -16,18 +8,16 @@ in
     };
   };
 
-  home = home;
+  home = {
+    username = "arcana";
+    homeDirectory = "/home/arcana";
+    stateVersion = "23.11";
+  };
 
   imports = [
-    # inputs.nix-colors.homeManagerModule
+    inputs.nix-colors.homeManagerModule
     # inputs.nur.modules.homeManager.default
-    # ../../dots/alacritty/default.nix
-    # ../../dots/zsh/default.nix
-    # ../../dots/nvim/default.nix
-    # ../../dots/neofetch/default.nix
-    # ../../dots/tmux/default.nix
-    # ../../dots/vscode/default.nix
-    # ../../dots/hyprland/default.nix
+    ../../home-manager/home.nix
     ./packages.nix
     ./gitconfig.nix
   ];
@@ -39,7 +29,5 @@ in
 
   programs.home-manager.enable = true;
 
-  systemd.user.startServices = "sd-switch";
 
-  # colorscheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 }

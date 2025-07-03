@@ -15,6 +15,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable-ferium.url = "github:NixOS/nixpkgs/f0eaec3bf29b96bf6f801cc602ed6827a9fa53ec";
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -58,8 +59,11 @@
       url = github:nix-community/disko/latest;
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    hydectl.url = "github:KillrOfLife/HyDE-cli-nix";
+    # hydectl.url = "github:KillrOfLife/HyDE-cli-nix";
+    suyu.url = "github:KillrOfLife/suyu-flake";
+    # yuzu-src.url = "git+ssh://git@github.com/KillrOfLife/yuzu.git";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
   };
 
   outputs =
@@ -81,6 +85,7 @@
         [
         #   ./desktop
           inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
+          inputs.nixos-cosmic.nixosModules.default
           inputs.hyprland.nixosModules.default
           inputs.home-manager-unstable.nixosModules.home-manager
         ]

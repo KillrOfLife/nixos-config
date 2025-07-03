@@ -14,6 +14,7 @@
     ../../modules/steam
     ../../modules/netbird
     # ../../modules/hydectl
+    ../../modules/suyu
   ];
 
   fileSystems."/" = {
@@ -24,17 +25,32 @@
     device = "/dev/disk/by-partlabel/disk-main-ESP";
     fsType = "vfat";
   };
+  # fileSystems."/run/media/arcana/FW-module" = {
+  #   device = "/dev/sda";
+  #   fsType = "ext4";
+  #   options = [
+  #     "rw"
+  #     "uid=1000"
+  #     "x-systemd.automount"
+  #   ];
+  # };
+
+  fileSystems."/run/media/arcana/FW-module" = {
+  device = "/dev/disk/by-label/FW-module";
+  fsType = "auto";
+  options = [ "nosuid" "nodev" "nofail" "x-gvfs-show" ];
+};
 
   hardware = {
     bluetooth = {
 	    enable = true;
-	    powerOnBoot = true;
-	    settings = {
-		    General = {
-		      Enable = "Source,Sink,Media,Socket";
-		      Experimental = true;
-		    };
-      };
+	    # powerOnBoot = true;
+	    # settings = {
+		  #   General = {
+		  #     Enable = "Source,Sink,Media,Socket";
+		  #     Experimental = true;
+		  #   };
+      # };
     };
     enableRedistributableFirmware = true;
     # cpu.intel = {
@@ -51,12 +67,20 @@
     #   powerManagement.enable = true;
     # };
   };
+# hardware.bluetooth.enable = true;
+# services.blueman.enable = true;
+
 
   services = {
     openssh.enable = true;
     blueman.enable = true;
+    fwupd.enable = true; # bios updates through LVFS
+
 
     fstrim.enable = lib.mkDefault true; # enable fstrim for SSDs
+
+    gvfs.enable = true;
+    udisks2.enable = true;
   };
 
   networking = {
@@ -78,6 +102,9 @@
     # envsubst
     pokemon-colorscripts-mac
 
+    dig.dnsutils
+    telegram-desktop
+    unrar
     gnumake
     # # --------------------------------------------------- // System
     # brightnessctl                                          # screen brightness control

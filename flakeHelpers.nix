@@ -14,6 +14,9 @@ let
     home-manager.useUserPackages = userPackages;
   };
   vars = import ./machines/vars.nix;
+  system = "x86_64-linux";
+  feriumPkgs = import inputs.nixpkgs-unstable-ferium { inherit system; };
+  stable = import inputs.nixpkgs { inherit system; };
 in
 {
   mkNixos = machineHostname: nixpkgsVersion: extraModules: rec {
@@ -26,7 +29,7 @@ in
       };
     };
     nixosConfigurations.${machineHostname} = nixpkgsVersion.lib.nixosSystem {
-        system = "x86_64-linux";
+      inherit system;
         specialArgs = {
           vars = import ./machines/vars.nix;
           inherit inputs;
@@ -43,6 +46,13 @@ in
           # ./modules/tg-notify
           # ./modules/auto-aspm
           # ./modules/mover
+
+          ({ pkgs, ... }: {
+            environment.systemPackages = [
+              # ...and your custom ferium from oldPkgs
+              feriumPkgs.ferium
+            ];
+          })
           (homeManagerCfg false [ ])
         ] ++ extraModules;
     };
