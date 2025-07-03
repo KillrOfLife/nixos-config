@@ -19,6 +19,8 @@
     recommendedEnvironment = true;
     xwayland.enable = true;
 
+    plugins = [];
+
     config = {
       input = {
         kb_layout = "gb";
@@ -62,7 +64,7 @@
         "${pkgs.nur.repos."999eagle".swayaudioidleinhibit}/bin/sway-audio-idle-inhibit -w"
         "${pkgs.waybar}/bin/waybar"
         "${pkgs.gammastep}/bin/gammastep"
-        "${pkgs.swaybg}/bin/swaybg -i ~/nixos-config/dots/wallpapers/Kurzgesagt-Galaxy_3.png --mode fill"
+        "${pkgs.swaybg}/bin/swaybg -i ~/dotfiles/home-manager/wallpapers/Kurzgesagt-Galaxy_3.png --mode fill"
         "${pkgs.trayscale}/bin/trayscale --hide-window"
         "mullvad-gui"
         "solaar -w hide"

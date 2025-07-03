@@ -10,6 +10,7 @@
 }: {
   # You can import other home-manager modules here
   imports = [
+    inputs.nur.modules.homeManager.default
     # ./nvim.nix
     ./editors/vscode.nix
     ./editors/git.nix
@@ -20,6 +21,7 @@
     # ./editors/nvim.nix
 
     # ./desktops/gnome
+    ./desktops/hyprland
 ];
   config = {
     colorscheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;

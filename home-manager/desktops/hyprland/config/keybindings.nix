@@ -59,6 +59,9 @@ in {
   wayland.windowManager.hyprland.keyBinds = {
     bind = {
       "SUPER, Return" = "exec, ${pkgs.alacritty}/bin/alacritty";
+      "SUPER, T" = "exec, ${pkgs.alacritty}/bin/alacritty";
+      "SUPER, B" = "exec, ${pkgs.brave}/bin/brave";
+      "SUPER, C" = "exec, ${pkgs.vscode}/bin/code";
       "SUPER, a" = "exec, ${pkgs.rofi}/bin/rofi -show drun -mode drun";
       "SUPER, Q" = "killactive,";
       "SUPER, F" = "Fullscreen,0";
@@ -158,4 +161,18 @@ in {
       "SUPER, mouse:273" = "resizewindow";
     };
   };
+  wayland.windowManager.hyprland.extraConfig = ''
+    gestures {
+      workspace_swipe = true
+    }
+    input {
+      follow_mouse = 1
+
+      touchpad {
+          disable_while_typing = 1
+          natural_scroll = true
+      }
+    }
+
+  '';
 }
