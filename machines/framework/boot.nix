@@ -48,11 +48,23 @@
       efi.canTouchEfiVariables = true;
       # systemd-boot.enable = true;
       grub = {
-            device = "nodev";
-            efiSupport = true;
-            enable = lib.mkForce true;
-            useOSProber = true;
-            timeoutStyle = "menu";
+        device = "nodev";
+        efiSupport = true;
+        enable = lib.mkForce true;
+        useOSProber = true;
+        timeoutStyle = "menu";
+        theme = pkgs.stdenv.mkDerivation {
+          pname = "catppuccin-grub-theme";
+          version = "1.0";
+          src = pkgs.fetchFromGitHub {
+            owner = "catppuccin";
+            repo = "grub";
+            rev = "main"; # or a specific commit
+            hash = "sha256-...";
+          };
+          installPhase = "cp -r src/mocha $out";
+        };
+
       };
     };
     initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
