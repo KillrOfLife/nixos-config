@@ -9,8 +9,7 @@
   imports = [
     ./disko.nix
     ./boot.nix
-    # ./framework_patches.nix
-    ../../modules/gnome
+    ../../modules/hyprland
     ../../modules/steam
     ../../modules/netbird
     # ../../modules/hydectl
